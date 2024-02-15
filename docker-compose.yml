@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  # server
+  slop-server:
+    build: ./
+    container_name: aarambh-server
+    # networks:
+    #   - shared-network
+
+    #Environment variables for Spring Boot Application.
+    environment:
+      - DATABASE_CONNECTION_URL=jdbc:postgresql://ep-soft-water-a54pvpz4.us-east-2.aws.neon.tech/aarambh?sslmode=require
+      - DATABASE_PASSWORD=dE5iHvzgt2fV
+      - DATABASE_USERNAME=pdandlur
+      - JWT_KEY=PyVjynySBpFOs2uSpoON6ge4DV/U+QmBpA7LGh0aQvfoceQbruI6gCQaUxJL5f6w
+    ports:
+      - 8080:8080
+
+
+# networks:
+#   shared-network: {}
