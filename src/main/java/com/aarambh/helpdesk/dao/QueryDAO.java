@@ -22,9 +22,8 @@ public class QueryDAO {
     @UuidGenerator
     private UUID queryId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "teamId", nullable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "teamId", nullable = false, updatable = false, referencedColumnName = "teamId")
     private TeamDAO teamId;
 
     @Column(name = "query", nullable = false, updatable = false)

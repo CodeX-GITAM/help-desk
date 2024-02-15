@@ -54,9 +54,13 @@ public class TeamServiceImpl implements TeamService {
     }
     @Override
     public BasicResDTO deleteTeam(TeamDAO teamById) {
+        if(queryRepository.existsByTeamId(teamById)||ratingRepository.existsByTeam(teamById)){
+            ratingRepository.deleteAllByTeam(teamById);
+            queryRepository.deleteAllByTeamId(teamById);
+        }
         teamRepository.delete(teamById);
-
         return new BasicResDTO(CommonConstants.TEAM_DELETED, HttpStatus.OK);
+
     }
 
     @Override

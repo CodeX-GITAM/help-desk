@@ -13,4 +13,6 @@ public interface RatingRepository extends JpaRepository<RatingDAO, UUID> {
     List<RatingDAO> findAllByTeam(TeamDAO teamDAO);
 
     void deleteAllByTeam(TeamDAO teamById);
+
+    boolean existsByTeam(TeamDAO teamById);
 }

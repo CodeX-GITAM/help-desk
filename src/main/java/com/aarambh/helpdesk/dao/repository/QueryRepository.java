@@ -16,4 +16,6 @@ public interface QueryRepository extends JpaRepository<QueryDAO, UUID> {
     long countByTeamIdAndIsSolvedFalse(TeamDAO team);
 
     void deleteAllByTeamId(TeamDAO teamId);
+
+    boolean existsByTeamId(TeamDAO teamById);
 }

@@ -26,9 +26,8 @@ public class RatingDAO {
     @Column(name = "rating", nullable = false,updatable = false)
     private double rating;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "teamId", nullable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "teamId", nullable = false, updatable = false, referencedColumnName = "teamId")
     private TeamDAO team;
 
     @Column(name = "ratingBy", nullable = false, updatable = false)
